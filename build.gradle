@@ -13,3 +13,11 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '6.3'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'demo.Application'
+        )
+    }
+}
